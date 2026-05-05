@@ -28,19 +28,18 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
-# Usuário não-root
 RUN useradd -m -s /bin/bash kelda 2>/dev/null || true
 
-# Copia o repositório inteiro mantendo estrutura:
-#   MonoBundle/The Tale of Kelda - Beta.exe
-#   MonoBundle/*.dll
-#   Resources/
+# Copia repositório (MonoBundle/ + Resources/)
 COPY --chown=kelda:kelda . /home/kelda/game/
 
-COPY --chown=kelda:kelda startup.sh /home/kelda/startup.sh
-RUN chmod +x /home/kelda/startup.sh
-
+# Scripts e configurações
+COPY --chown=kelda:kelda startup.sh  /home/kelda/startup.sh
+COPY --chown=kelda:kelda serve.py    /home/kelda/serve.py
+COPY --chown=kelda:kelda index.html  /home/kelda/index.html
 COPY supervisord.conf /etc/supervisor/conf.d/kelda.conf
+
+RUN chmod +x /home/kelda/startup.sh /home/kelda/serve.py
 
 EXPOSE 8080
 

@@ -4,10 +4,8 @@ set -e
 export WINEPREFIX=/home/kelda/.wine
 export WINEARCH=win32
 export DISPLAY=:1
-
-# MonoGame/SDL — força escala inteira para pixel art (sem blur)
 export SDL_AUDIODRIVER=dummy
-export SDL_RENDER_SCALE_QUALITY=0   # nearest neighbor — mantém pixels quadrados
+export SDL_RENDER_SCALE_QUALITY=0
 export WINEDLLOVERRIDES="mscoree,mshtml="
 
 echo "[kelda] Inicializando Wine prefix..."
@@ -20,14 +18,9 @@ for i in $(seq 1 30); do
 done
 
 echo "[kelda] Xvfb pronto."
-
-# Gerenciador de janelas mínimo
 openbox &
 sleep 1
 
-# O .exe e as DLLs estão em MonoBundle/ — precisa rodar de dentro dessa pasta
-# para que as DLLs relativas sejam encontradas
 cd /home/kelda/game/MonoBundle
-
 echo "[kelda] Iniciando The Tale of Kelda via Wine..."
 exec wine "The Tale of Kelda - Beta.exe"
