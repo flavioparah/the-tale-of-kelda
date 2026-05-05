@@ -26,6 +26,8 @@ sleep 1
 # MacOS/MonoBundle/The Tale of Kelda - Beta.exe
 EXE_DIR="/home/kelda/game/MacOS/MonoBundle"
 EXE_NAME="The Tale of Kelda - Beta.exe"
+# Normalizar nome para evitar problemas com espaços se necessário, 
+# mas o Wine lida bem com aspas.
 
 if [ ! -f "$EXE_DIR/$EXE_NAME" ]; then
   echo "[kelda] ERRO: .exe não encontrado em $EXE_DIR/$EXE_NAME"
@@ -37,7 +39,13 @@ fi
 echo "[kelda] Iniciando: $EXE_NAME"
 cd "$EXE_DIR"
 # Inicia o jogo em background para podermos monitorar se ele trava
-wine "$EXE_NAME" &
+# Tenta rodar com o Mono diretamente se o Wine falhar ou como alternativa
+# Mas como é um .exe de Windows, Wine é o padrão.
+echo "[kelda] Permissões do executável:"
+ls -l "$EXE_NAME"
+
+# Inicia o jogo
+wine "$EXE_NAME" > /tmp/game_stdout.log 2> /tmp/game_stderr.log &
 WINE_PID=$!
 
 echo "[kelda] Jogo iniciado com PID $WINE_PID"

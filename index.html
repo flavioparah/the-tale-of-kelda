@@ -523,7 +523,7 @@
 
         <iframe
           id="game-frame"
-          src="/vnc.html?autoconnect=true&resize=scale&show_dot=false&toolbar=false&bell=false&path=websockify"
+          src=""
           allowfullscreen
           scrolling="no"
           title="The Tale of Kelda"
@@ -554,6 +554,19 @@
 
 <script>
   const frame = document.getElementById('game-frame');
+  
+  // Determina a porta do VNC. 
+  // Se estivermos em um ambiente onde a porta 6080 está exposta (como local), usamos ela.
+  // Se não, tentamos usar a mesma porta do site (proxy).
+  const vncPort = window.location.port === '8080' ? '6080' : window.location.port;
+  const vncHost = window.location.hostname;
+  const vncProtocol = window.location.protocol;
+  
+  // Tenta carregar o noVNC da porta 6080 primeiro (mais estável)
+  // Se falhar, o proxy do serve.py (se existir) seria o fallback, mas vamos focar na 6080.
+  // Para deploy em nuvem (Coolify/Docker), geralmente apenas uma porta é exposta.
+  // Então vamos manter o caminho relativo, mas garantir que o websockify esteja no lugar certo.
+  frame.src = `/vnc.html?autoconnect=true&resize=scale&show_dot=false&toolbar=false&bell=false&path=websockify`;
   const overlay = document.getElementById('loading');
   const dot = document.getElementById('status-dot');
   const txt = document.getElementById('status-text');

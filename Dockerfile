@@ -62,6 +62,10 @@ COPY supervisord.conf /etc/supervisor/conf.d/kelda.conf
 
 RUN chmod +x /home/kelda/startup.sh
 
+# Linkar arquivos do noVNC para que o websockify possa servi-los junto com o index.html
+RUN ln -s /usr/share/novnc/* /home/kelda/ && \
+    rm -f /home/kelda/index.html.bak # Limpeza se necessário
+
 EXPOSE 8080
 
 USER kelda
