@@ -8,7 +8,7 @@ ENV SCREEN_DEPTH=24
 ENV VNC_PORT=5900
 ENV NOVNC_PORT=8080
 
-# Wine já vem na imagem base — instala apenas o que falta
+# Ubuntu 24.04 (Noble) — libgl1-mesa-glx foi removido, usar libgl1
 RUN apt-get update && apt-get install -y --no-install-recommends \
     xvfb \
     x11vnc \
@@ -20,7 +20,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libsdl2-2.0-0:i386 \
     libopenal1 \
     libopenal1:i386 \
-    libgl1-mesa-glx \
+    libgl1 \
     libgl1-mesa-dri \
     mono-runtime \
     xdotool \
@@ -30,10 +30,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN useradd -m -s /bin/bash kelda 2>/dev/null || true
 
-# Copia repositório (MonoBundle/ + Resources/)
 COPY --chown=kelda:kelda . /home/kelda/game/
-
-# Scripts e configurações
 COPY --chown=kelda:kelda startup.sh  /home/kelda/startup.sh
 COPY --chown=kelda:kelda serve.py    /home/kelda/serve.py
 COPY --chown=kelda:kelda index.html  /home/kelda/index.html
