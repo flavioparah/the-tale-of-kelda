@@ -48,9 +48,9 @@ RUN useradd -m -s /bin/bash kelda
 
 # Copia o repositório inteiro
 # Estrutura esperada no repo:
-#   MacOS/MonoBundle/The Tale of Kelda - Beta.exe
-#   MacOS/MonoBundle/*.dll
-#   Recursos/Content/...
+#   MonoBundle/The Tale of Kelda - Beta.exe
+#   MonoBundle/*.dll
+#   Resources/Content/...
 # No Docker, os arquivos são copiados para /home/kelda/game/
 # Mas localmente ou em outros ambientes, a estrutura pode variar.
 COPY --chown=kelda:kelda . /home/kelda/game/

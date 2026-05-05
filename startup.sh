@@ -7,7 +7,7 @@ export DISPLAY=:1
 export SDL_AUDIODRIVER=dummy
 export SDL_RENDER_SCALE_QUALITY=0
 export WINEDLLOVERRIDES="mscoree,mshtml="
-export MONO_PATH=/home/kelda/game/MacOS/MonoBundle
+export MONO_PATH=/home/kelda/game/MonoBundle
 
 echo "[kelda] Inicializando Wine prefix..."
 wineboot --init 2>/dev/null || true
@@ -23,8 +23,8 @@ openbox &
 sleep 1
 
 # Caminho correto conforme estrutura do repositório:
-# MacOS/MonoBundle/The Tale of Kelda - Beta.exe
-EXE_DIR="/home/kelda/game/MacOS/MonoBundle"
+# MonoBundle/The Tale of Kelda - Beta.exe
+EXE_DIR="/home/kelda/game/MonoBundle"
 EXE_NAME="The Tale of Kelda - Beta.exe"
 # Normalizar nome para evitar problemas com espaços se necessário, 
 # mas o Wine lida bem com aspas.
