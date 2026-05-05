@@ -7,7 +7,7 @@ export DISPLAY=:1
 export SDL_AUDIODRIVER=dummy
 export SDL_RENDER_SCALE_QUALITY=0
 export WINEDLLOVERRIDES="mscoree,mshtml="
-export MONO_PATH=/home/kelda/game/MacOS/MonoBundle
+export MONO_PATH=/home/kelda/game/MonoBundle
 
 echo "[kelda] Inicializando Wine prefix..."
 wineboot --init 2>/dev/null || true
@@ -22,17 +22,18 @@ echo "[kelda] Display pronto."
 openbox &
 sleep 1
 
-# Caminho correto conforme estrutura do repositório:
-# MacOS/MonoBundle/The Tale of Kelda - Beta.exe
-EXE_DIR="/home/kelda/game/MacOS/MonoBundle"
-EXE_NAME="The Tale of Kelda - Beta.exe"
+# Tenta encontrar o .exe automaticamente
+EXE=$(find /home/kelda/game/MonoBundle -name "*.exe" 2>/dev/null | head -1)
 
-if [ ! -f "$EXE_DIR/$EXE_NAME" ]; then
-  echo "[kelda] ERRO: .exe não encontrado em $EXE_DIR/$EXE_NAME"
-  echo "[kelda] Conteúdo de /home/kelda/game:"
+if [ -z "$EXE" ]; then
+  echo "[kelda] ERRO: nenhum .exe encontrado em MonoBundle"
+  echo "[kelda] Arquivos disponíveis:"
   find /home/kelda/game -name "*.exe" 2>/dev/null
   sleep infinity
 fi
+
+EXE_DIR=$(dirname "$EXE")
+EXE_NAME=$(basename "$EXE")
 
 echo "[kelda] Iniciando: $EXE_NAME"
 cd "$EXE_DIR"
