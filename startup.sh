@@ -36,4 +36,12 @@ fi
 
 echo "[kelda] Iniciando: $EXE_NAME"
 cd "$EXE_DIR"
-exec wine "$EXE_NAME"
+# Inicia o jogo em background para podermos monitorar se ele trava
+wine "$EXE_NAME" &
+WINE_PID=$!
+
+echo "[kelda] Jogo iniciado com PID $WINE_PID"
+
+# Aguarda o processo terminar
+wait $WINE_PID
+echo "[kelda] O processo do jogo encerrou."

@@ -567,12 +567,13 @@
     }, 1200);
   });
 
-  // Fallback: hide after 12s regardless
+  // Fallback: hide after 15s regardless, but check if frame is actually responsive
   setTimeout(() => {
-    overlay.classList.add('hidden');
-    dot.classList.add('connected');
-    txt.textContent = 'connected';
-  }, 12000);
+    if (!overlay.classList.contains('hidden')) {
+      overlay.querySelector('.loading-text').textContent = 'Still trying to connect...';
+      overlay.querySelector('.loading-text').style.color = '#ff4444';
+    }
+  }, 15000);
 </script>
 
 </body>

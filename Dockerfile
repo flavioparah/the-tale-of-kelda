@@ -51,6 +51,8 @@ RUN useradd -m -s /bin/bash kelda
 #   MacOS/MonoBundle/The Tale of Kelda - Beta.exe
 #   MacOS/MonoBundle/*.dll
 #   Recursos/Content/...
+# No Docker, os arquivos são copiados para /home/kelda/game/
+# Mas localmente ou em outros ambientes, a estrutura pode variar.
 COPY --chown=kelda:kelda . /home/kelda/game/
 
 COPY --chown=kelda:kelda startup.sh   /home/kelda/startup.sh
