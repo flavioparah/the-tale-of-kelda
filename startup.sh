@@ -1,16 +1,11 @@
 #!/bin/bash
 set -e
 
-export WINEPREFIX=/home/kelda/.wine
-export WINEARCH=win32
 export DISPLAY=:1
 export SDL_AUDIODRIVER=dummy
 export SDL_RENDER_SCALE_QUALITY=0
-export WINEDLLOVERRIDES="mscoree,mshtml="
+# Aponta o Mono para as DLLs do jogo
 export MONO_PATH=/home/kelda/game/MonoBundle
-
-echo "[kelda] Inicializando Wine prefix..."
-wineboot --init 2>/dev/null || true
 
 echo "[kelda] Aguardando Xvfb..."
 for i in $(seq 1 40); do
@@ -22,12 +17,11 @@ echo "[kelda] Display pronto."
 openbox &
 sleep 1
 
-# Tenta encontrar o .exe automaticamente
+# Encontra o .exe automaticamente
 EXE=$(find /home/kelda/game/MonoBundle -name "*.exe" 2>/dev/null | head -1)
 
 if [ -z "$EXE" ]; then
-  echo "[kelda] ERRO: nenhum .exe encontrado em MonoBundle"
-  echo "[kelda] Arquivos disponíveis:"
+  echo "[kelda] ERRO: nenhum .exe encontrado"
   find /home/kelda/game -name "*.exe" 2>/dev/null
   sleep infinity
 fi
@@ -35,6 +29,10 @@ fi
 EXE_DIR=$(dirname "$EXE")
 EXE_NAME=$(basename "$EXE")
 
-echo "[kelda] Iniciando: $EXE_NAME"
+echo "[kelda] Iniciando com Mono: $EXE_NAME"
 cd "$EXE_DIR"
-exec wine "$EXE_NAME"
+
+# Roda com mono nativo do Linux (não Wine)
+# LD_LIBRARY_PATH garante que o SDL2 e OpenAL nativos sejam encontrados
+export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
+exec mono "$EXE_NAME"

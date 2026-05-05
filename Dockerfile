@@ -7,25 +7,25 @@ ENV SCREEN_HEIGHT=864
 ENV SCREEN_DEPTH=24
 ENV VNC_PORT=5900
 
-RUN dpkg --add-architecture i386
-
 RUN apt-get update -o Acquire::Retries=5 \
   && apt-get install -y --no-install-recommends \
-    wine \
-    wine32 \
-    wine64 \
+    # Display virtual
     xvfb \
     x11vnc \
+    # noVNC + WebSocket
     novnc \
     websockify \
+    # WM mínimo
     openbox \
+    # Orquestrador
     supervisor \
+    # Mono runtime completo (roda .exe MonoGame nativamente)
+    mono-complete \
+    # MonoGame deps nativos
     libsdl2-2.0-0 \
-    libsdl2-2.0-0:i386 \
     libopenal1 \
-    libopenal1:i386 \
     libgl1-mesa-dri \
-    mono-runtime \
+    # Utils
     xdotool \
     python3 \
     ca-certificates \
@@ -34,13 +34,8 @@ RUN apt-get update -o Acquire::Retries=5 \
 
 RUN useradd -m -s /bin/bash kelda
 
-# Copia o repo inteiro
 COPY --chown=kelda:kelda . /home/kelda/game/
-
-# Copia nosso index.html customizado para dentro do diretório do noVNC
-# assim o websockify serve ele como página raiz
 COPY --chown=kelda:kelda index.html /usr/share/novnc/index.html
-
 COPY --chown=kelda:kelda startup.sh /home/kelda/startup.sh
 COPY supervisord.conf /etc/supervisor/conf.d/kelda.conf
 
