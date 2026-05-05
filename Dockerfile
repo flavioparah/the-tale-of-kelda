@@ -48,23 +48,17 @@ RUN useradd -m -s /bin/bash kelda
 
 # Copia o repositório inteiro
 # Estrutura esperada no repo:
-#   MonoBundle/The Tale of Kelda - Beta.exe
-#   MonoBundle/*.dll
-#   Resources/Content/...
-# No Docker, os arquivos são copiados para /home/kelda/game/
-# Mas localmente ou em outros ambientes, a estrutura pode variar.
+#   MacOS/MonoBundle/The Tale of Kelda - Beta.exe
+#   MacOS/MonoBundle/*.dll
+#   Recursos/Content/...
 COPY --chown=kelda:kelda . /home/kelda/game/
 
 COPY --chown=kelda:kelda startup.sh   /home/kelda/startup.sh
-# serve.py removido em favor do websockify direto
+COPY --chown=kelda:kelda serve.py     /home/kelda/serve.py
 COPY --chown=kelda:kelda index.html   /home/kelda/index.html
 COPY supervisord.conf /etc/supervisor/conf.d/kelda.conf
 
 RUN chmod +x /home/kelda/startup.sh
-
-# Linkar arquivos do noVNC para que o websockify possa servi-los junto com o index.html
-RUN ln -s /usr/share/novnc/* /home/kelda/ && \
-    rm -f /home/kelda/index.html.bak # Limpeza se necessário
 
 EXPOSE 8080
 
