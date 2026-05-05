@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="118" height="20" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="tileset" tilewidth="16" tileheight="16">
+  <image source="tileset.png" width="512" height="512"/>
+ </tileset>
+ <layer name="Camada de Tiles 2" width="118" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3UUQqAIBBAQY/n/U/Uv9JqtFLWDESsCJUPKgUAAAAAAKBXBzNzasKV/T7RzBxdvyWj545d73zjG87nTGbPXbu282itNvdo31P/G137Wdf/dr2yL3reKiu6HvWTN7bgJAAA
+  </data>
+ </layer>
+ <layer name="Camada de Tiles 1" width="118" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+1XUUrDQBDd2HqQqD1IrAWvEbW0Um/hh0rBO4ifPYp4Ei/hBHbhOcx2N2Z2C8s+eCSZvJ1M9jFDYkxFSTgQv09dRIU6vkz1tUT8mOpriai+lonqa5movpaJ6mt52J1VX0vEfoSvG+JWOD6OeN6GrZOYEtsJa/G9JfK9iNkft7ZvSNfIWncvJu5iB/CVTs2MOIcjxl6Ir8LxTdCesxoaex/X+M59zw/lD8Ua+4wYnaTB95bo6p9ZSjFOXDtv0vCCcl8q8Iq4YPvSmvT5Q7Hhehmp45qOeK1Uf24ulXhDXHn2JWX+UKyz62N0Kesfy/uJ1PR1TbwF9or74vIjWk8M+66362N0XHMqXz+IzxOp6euwT+hrq7gvLv87sPPEVnCNczikkzS5fZXm0n+gXQ/6mmIOY6yLiOEcDukkTQ5fHyxdnz4ddSwOmr7yOazdr2vzd9a0ntgCrnEOh3Rck8vXwc9Po+Ong6avfA5r96uUX4rh3MA5HNKlrP/Ye2nMXQ7t+lL2q5RfmhHoD/ZrSMc1g693Zvq3aYj8/0oDmr7mmMM5+3Vnpn+XxlBz/jr8AmFmN0ngJAAA
+  </data>
+ </layer>
+ <objectgroup name="Colisoes" width="118" height="20" visible="0">
+  <object x="0" y="160" width="320" height="32"/>
+  <object x="288" y="192" width="32" height="176"/>
+  <object x="368" y="160" width="336" height="32"/>
+  <object x="368" y="192" width="32" height="160"/>
+  <object x="688" y="192" width="16" height="176"/>
+  <object x="704" y="224" width="432" height="48"/>
+  <object x="752" y="160" width="32" height="224"/>
+  <object x="832" y="160" width="32" height="208"/>
+  <object x="896" y="160" width="48" height="224"/>
+  <object x="992" y="160" width="32" height="224"/>
+  <object x="1056" y="160" width="32" height="224"/>
+  <object x="1136" y="160" width="32" height="160"/>
+  <object x="1136" y="160" width="784" height="32"/>
+ </objectgroup>
+ <objectgroup name="Jogador" width="118" height="20">
+  <object gid="7" x="16" y="160"/>
+ </objectgroup>
+ <objectgroup name="Esqueletos" width="118" height="20">
+  <object gid="39" x="1232" y="160"/>
+  <object gid="39" x="1280" y="160"/>
+  <object gid="39" x="1472" y="160"/>
+  <object gid="39" x="1776" y="160"/>
+  <object gid="39" x="1696" y="160"/>
+  <object gid="39" x="432" y="160"/>
+  <object gid="39" x="240" y="160"/>
+ </objectgroup>
+ <objectgroup name="Esqueletos_Subindo" width="118" height="20"/>
+ <objectgroup name="Voadores" width="118" height="20">
+  <object gid="41" x="864" y="128"/>
+ </objectgroup>
+ <objectgroup name="Espinhos" width="118" height="20">
+  <object gid="8" x="1120" y="224"/>
+  <object gid="8" x="1104" y="224"/>
+  <object gid="8" x="1088" y="224"/>
+  <object gid="8" x="1040" y="224"/>
+  <object gid="8" x="1024" y="224"/>
+  <object gid="8" x="976" y="224"/>
+  <object gid="8" x="960" y="224"/>
+  <object gid="8" x="944" y="224"/>
+  <object gid="8" x="880" y="224"/>
+  <object gid="8" x="864" y="224"/>
+  <object gid="8" x="816" y="224"/>
+  <object gid="8" x="800" y="224"/>
+  <object gid="8" x="784" y="224"/>
+  <object gid="8" x="736" y="224"/>
+  <object gid="8" x="720" y="224"/>
+  <object gid="8" x="704" y="224"/>
+  <object gid="8" x="512" y="160"/>
+  <object gid="8" x="496" y="160"/>
+ </objectgroup>
+ <objectgroup name="Arqueiros" width="118" height="20">
+  <object gid="40" x="1072" y="160"/>
+  <object gid="40" x="768" y="160"/>
+  <object gid="40" x="624" y="160"/>
+  <object gid="40" x="1584" y="160"/>
+  <object gid="40" x="1328" y="160"/>
+ </objectgroup>
+ <objectgroup name="Vasos" width="118" height="20">
+  <object gid="9" x="912" y="160"/>
+  <object gid="9" x="1456" y="160"/>
+  <object gid="9" x="1440" y="160"/>
+ </objectgroup>
+ <objectgroup name="Morte" width="118" height="20">
+  <object x="256" y="224" width="176" height="16"/>
+ </objectgroup>
+ <objectgroup name="Proximo" width="118" height="20">
+  <object x="1840" y="64" width="16" height="96"/>
+ </objectgroup>
+ <objectgroup name="Agua" width="118" height="20">
+  <object gid="71" x="320" y="208"/>
+  <object gid="71" x="336" y="208"/>
+  <object gid="71" x="352" y="208"/>
+ </objectgroup>
+</map>

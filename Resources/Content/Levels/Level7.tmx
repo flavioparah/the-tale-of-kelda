@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="36" height="50" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="tileset" tilewidth="16" tileheight="16">
+  <image source="tileset.png" width="512" height="512"/>
+ </tileset>
+ <layer name="Camada de Tiles 1" width="36" height="50">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+3VSw7CIBAG4BmiJ+vGq7jxEibgyjvoym48BupFfNzCWdQUK1WrIwxmJvlDAot+oTBUAFAxZYMANeVZrWh9jXzfLN1jDYBrsjD5PVL2Z2ZkeZbCPFthHhd4rJ7n4jy3/yfBE54lCZ6wcnhsc5ekeKTtj3qGebQ/q2eIR/uPejg8Yd+R4JG2P+op06PvqWyPvl+/83ha2wXx+DjXF98Z9wzvxYnWzsg3Xr7cn9SlnnjZN/tz6irNM0LejLG959PIXXvlmWMb92Fsz/yBMoH7pO7Px04vyu2pIwb1/K/nCkNZr9sgHAAA
+  </data>
+ </layer>
+ <objectgroup name="Colisoes" width="36" height="50" visible="0">
+  <object x="0" y="688" width="384" height="48"/>
+  <object x="0" y="592" width="336" height="16"/>
+  <object x="320" y="-32" width="16" height="640"/>
+  <object x="448" y="-16" width="16" height="1136"/>
+  <object x="416" y="640" width="32" height="16"/>
+  <object x="368" y="576" width="48" height="16"/>
+  <object x="336" y="528" width="32" height="16"/>
+  <object x="400" y="480" width="48" height="16"/>
+  <object x="368" y="400" width="48" height="16"/>
+  <object x="336" y="336" width="32" height="16"/>
+  <object x="400" y="272" width="48" height="16"/>
+  <object x="416" y="160" width="16" height="16"/>
+  <object x="352" y="112" width="16" height="16"/>
+  <object x="400" y="112" width="48" height="16"/>
+  <object x="384" y="32" width="64" height="16"/>
+  <object x="336" y="208" width="32" height="16"/>
+  <object x="400" y="176" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup name="Jogador" width="36" height="50">
+  <object gid="7" x="16" y="688"/>
+ </objectgroup>
+ <objectgroup name="Esqueletos" width="36" height="50">
+  <object gid="39" x="256" y="688"/>
+  <object gid="39" x="384" y="576"/>
+  <object gid="39" x="432" y="480"/>
+  <object gid="39" x="384" y="400"/>
+  <object gid="39" x="416" y="272"/>
+  <object gid="39" x="352" y="208"/>
+ </objectgroup>
+ <objectgroup name="Esqueletos_Subindo" width="36" height="50"/>
+ <objectgroup name="Voadores" width="36" height="50">
+  <object gid="41" x="464" y="624"/>
+  <object gid="41" x="288" y="480"/>
+  <object gid="41" x="384" y="336"/>
+  <object gid="41" x="176" y="640"/>
+  <object gid="9" x="432" y="32"/>
+ </objectgroup>
+ <objectgroup name="Espinhos" width="36" height="50"/>
+ <objectgroup name="Arqueiros" width="36" height="50">
+  <object gid="40" x="416" y="112"/>
+ </objectgroup>
+ <objectgroup name="Vasos" width="36" height="50">
+  <object gid="9" x="176" y="688"/>
+  <object gid="9" x="192" y="688"/>
+  <object gid="9" x="208" y="688"/>
+  <object gid="9" x="336" y="336"/>
+  <object gid="9" x="432" y="272"/>
+ </objectgroup>
+ <objectgroup name="Morte" width="36" height="50">
+  <object x="320" y="720" width="176" height="16"/>
+ </objectgroup>
+ <objectgroup name="Proximo" width="36" height="50">
+  <object x="336" y="-16" width="112" height="16"/>
+ </objectgroup>
+ <objectgroup name="Agua" width="36" height="50">
+  <object gid="71" x="384" y="704"/>
+  <object gid="71" x="400" y="704"/>
+  <object gid="71" x="416" y="704"/>
+  <object gid="71" x="432" y="704"/>
+ </objectgroup>
+</map>

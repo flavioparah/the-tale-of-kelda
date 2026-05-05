@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:dc17a79881842fdfa4681b31f4a34dc5:f6d38da5e5f2157b72cd8f9edefadf41:534503e03ae6f78cc57e52f14136e54d$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="Cenario.png" width="1024" height="1024">
+    <sprite n="fade_in.png" x="0" y="144" w="640" h="144"/>
+    <sprite n="fade_out.png" x="0" y="0" w="640" h="144"/>
+    <sprite n="fundocastelo1.png" x="320" y="288" w="320" h="192"/>
+    <sprite n="fundocastelo2.png" x="0" y="288" w="320" h="192"/>
+    <sprite n="fundochefao.png" x="0" y="550" w="192" h="166"/>
+    <sprite n="fundofloresta1.png" x="640" y="192" w="320" h="192"/>
+    <sprite n="fundofloresta2.png" x="640" y="0" w="320" h="192"/>
+    <sprite n="fundolua.png" x="832" y="384" w="192" h="166"/>
+    <sprite n="nuvens.png" x="640" y="384" w="192" h="166"/>
+</TextureAtlas>

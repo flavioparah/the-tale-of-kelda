@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="12" height="11" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="tileset" tilewidth="16" tileheight="16">
+  <image source="../../../../../Temp/tileset.png" width="512" height="512"/>
+ </tileset>
+ <layer name="Camada de Tiles 1" width="12" height="11">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NmZmBgJgGnMDEwpDIRT48C6gIWRgYGVkbi6cNMpGEAvGoRNxACAAA=
+  </data>
+ </layer>
+ <objectgroup name="Colisoes" width="12" height="11">
+  <object x="0" y="144" width="192" height="32"/>
+  <object x="0" y="0" width="192" height="32"/>
+  <object x="176" y="32" width="16" height="112"/>
+  <object x="0" y="32" width="16" height="112"/>
+ </objectgroup>
+ <objectgroup name="Jogador" width="12" height="11">
+  <object gid="743" x="48" y="144"/>
+ </objectgroup>
+ <objectgroup name="Chefao" width="12" height="11">
+  <object gid="743" x="112" y="128"/>
+ </objectgroup>
+ <objectgroup name="Esqueletos" width="12" height="11"/>
+ <objectgroup name="Voadores" width="12" height="11"/>
+ <objectgroup name="Espinhos" width="12" height="11"/>
+ <objectgroup name="Arqueiros" width="12" height="11"/>
+ <objectgroup name="Vasos" width="12" height="11"/>
+</map>

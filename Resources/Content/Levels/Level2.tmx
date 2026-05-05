@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="118" height="70" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="tileset" tilewidth="16" tileheight="16">
+  <image source="tileset.png" width="512" height="512"/>
+ </tileset>
+ <layer name="Camada de Tiles 2" width="118" height="70">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+3ZSwqDMABAwR7P+5+oW1tsrRBpfM6AuIiGwPMD+ngAAAAAAFe3rLatMa7nU8/1OPNbNra945nf0U66XsM/um49I/aeF3vnuN5eVe7XWdc10vK2/+XYo3PPZtZ1jaRr05Guv8w183ts1nWdYWTXkfOcYea1jaZr05263omuTbo26dqmK9/o2qRrk64td/pGdyd6NunapGuTrk26NunapGuTrk26NunapGuTrk26NunapGuP/65Nmjbp2qRrk65Nujbp2qRrk65Nujbp2qRrk65Nujbp2qRrk65Nujbp2qRrk65Nujbp2qRr05ldn9HFjlYQgQAA
+  </data>
+ </layer>
+ <layer name="Camada de Tiles 1" width="118" height="70">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+2cC27UMBCG3QcH6YODlIKE1FNAQbSil6AULZWQ4ApI5SVxKaQeBJuN1cH12EnjJPa//0if4k2yecyXcV7tGsNoMfYsTyzHCow2g14x463l0vK+GzpuDL0ixpGhV8SgV4y42P7/M71ixKfKvb6xnFnORVuOaz3kvpybfvt21pGK3xV7/Wb5bvlh+SmGctyvmbZl7LG0ZXGp3rHsiuHK8tFy3SE/P1KWs+q+G5vu59kJ+Gzq8VpDeB8y3y5PWk61cPWy33FgOew4UHDTnkWWs9ctw01/rKyr5P1rWFtj6ihWG1q9TN0naz60nGqRy7Xkq1nfe15Yngf45TxNbMMQr3Oc08LakP2WrBdt/EPqKBexHMmc5vLip6VyfSpwTmM+S3rdFoR5LZ0/F2FtyBrp05Z1lMr3kP5Ay9Efsz6OUufDLTHtNrIMWZuelNNSXmM59sNUPxS7bu3TfpHZnj58MfHz4a65q/NY7fvPq6Ct+fD5SfXN8jiNfd+5cefQlMcpvLp+4ZUYvhRtbZn+ek3mJsyl1pbXbGPI1XZsnEbfdcbynMvvUl5dv3Alhpei/UFZ5rtgvvB7N0a/DizhdEl83+z741q9Dlnf0O1a2sFU+P7Y7etRZl/ptR18vukViym8+vs/x62py+uJuXuehe7VuyrlNXcPHUZuvaXrNHXNj0INXues19w+orBpXks8c2iBTfOKfr1Er9hsmleeX8t7jb2fNcr8U3ldOt8liO3LmGN5rNfX95X+iyWeS5Dh1NwPE3ola/wzOq0Pp9c2Sfmh13ahV0we6nXO5/5kPq+s17qhV0zoFRN6xYReMaFXTOgVk5xX7T0d71/rJuWH7+naJfU3YeyH2yVXr/TaJrxuwuMk4YVe26XP/1jSa3vQKyb0igm9YjLGK5831QvrFRN6xYReMaFXTPr+9lMs6LVe+njle7r24H0OJmO85n7LY+l922RYr5jQKyb0igm9YkKvmNArJvSKCb1iQq+Y0CsmU3r9CxDT610QgQAA
+  </data>
+ </layer>
+ <objectgroup name="Colisoes" width="118" height="70" visible="0">
+  <object x="0" y="192" width="128" height="64"/>
+  <object x="208" y="224" width="240" height="32"/>
+  <object x="448" y="176" width="288" height="16"/>
+  <object x="736" y="208" width="304" height="16"/>
+  <object x="1040" y="144" width="112" height="16"/>
+  <object x="1152" y="192" width="80" height="16"/>
+  <object x="1280" y="192" width="112" height="16"/>
+  <object x="1328" y="128" width="224" height="16"/>
+  <object x="1152" y="240" width="112" height="16"/>
+  <object x="1072" y="224" width="16" height="208"/>
+  <object x="1040" y="160" width="16" height="48"/>
+  <object x="1136" y="160" width="16" height="32"/>
+  <object x="1152" y="256" width="16" height="160"/>
+  <object x="1216" y="208" width="16" height="32"/>
+  <object x="1248" y="256" width="16" height="160"/>
+  <object x="1280" y="208" width="16" height="224"/>
+  <object x="1376" y="208" width="16" height="224"/>
+  <object x="1328" y="144" width="16" height="48"/>
+  <object x="448" y="192" width="16" height="32"/>
+  <object x="176" y="160" width="80" height="16"/>
+  <object x="720" y="192" width="16" height="16"/>
+  <object x="512" y="128" width="160" height="16"/>
+  <object x="1616" y="144" width="16" height="288"/>
+  <object x="1664" y="144" width="16" height="976"/>
+  <object x="1616" y="128" width="64" height="16"/>
+  <object x="1536" y="144" width="16" height="32"/>
+  <object x="1504" y="160" width="32" height="16"/>
+  <object x="1440" y="176" width="80" height="32"/>
+  <object x="1424" y="336" width="16" height="96"/>
+  <object x="1760" y="128" width="16" height="1104"/>
+  <object x="1776" y="128" width="80" height="16"/>
+  <object x="1840" y="48" width="16" height="80"/>
+  <object x="1760" y="32" width="96" height="16"/>
+ </objectgroup>
+ <objectgroup name="Jogador" width="118" height="70">
+  <object gid="7" x="16" y="192"/>
+ </objectgroup>
+ <objectgroup name="Esqueletos" width="118" height="70">
+  <object gid="39" x="496" y="176"/>
+  <object gid="39" x="608" y="176"/>
+  <object gid="39" x="688" y="176"/>
+  <object gid="39" x="288" y="224"/>
+  <object gid="39" x="1056" y="144"/>
+  <object gid="39" x="1184" y="192"/>
+  <object gid="39" x="992" y="208"/>
+  <object gid="39" x="1456" y="128"/>
+  <object gid="39" x="544" y="176"/>
+ </objectgroup>
+ <objectgroup name="Esqueletos_Subindo" width="118" height="70"/>
+ <objectgroup name="Voadores" width="118" height="70">
+  <object gid="41" x="1632" y="480"/>
+  <object gid="41" x="1632" y="592"/>
+  <object gid="41" x="1776" y="528"/>
+  <object gid="41" x="1776" y="688"/>
+ </objectgroup>
+ <objectgroup name="Espinhos" width="118" height="70">
+  <object gid="8" x="320" y="224"/>
+  <object gid="8" x="304" y="224"/>
+  <object gid="8" x="816" y="208"/>
+  <object gid="8" x="832" y="208"/>
+  <object gid="8" x="1392" y="128"/>
+  <object gid="8" x="832" y="208"/>
+  <object gid="8" x="1824" y="128"/>
+ </objectgroup>
+ <objectgroup name="Arqueiros" width="118" height="70">
+  <object gid="40" x="368" y="224"/>
+  <object gid="40" x="640" y="128"/>
+  <object gid="40" x="912" y="208"/>
+  <object gid="40" x="1648" y="128"/>
+  <object gid="40" x="1360" y="128"/>
+  <object gid="40" x="1792" y="128"/>
+ </objectgroup>
+ <objectgroup name="Vasos" width="118" height="70">
+  <object gid="9" x="1488" y="128"/>
+  <object gid="9" x="1808" y="128"/>
+  <object gid="9" x="1104" y="144"/>
+  <object gid="9" x="1024" y="208"/>
+ </objectgroup>
+ <objectgroup name="Proximo" width="118" height="70">
+  <object x="1680" y="1088" width="80" height="32"/>
+ </objectgroup>
+ <objectgroup name="Morte" width="118" height="70">
+  <object x="0" y="272" width="304" height="16"/>
+  <object x="1232" y="272" width="80" height="16"/>
+  <object x="1472" y="176" width="176" height="16"/>
+ </objectgroup>
+ <objectgroup name="Agua" width="118" height="70">
+  <object gid="71" x="1552" y="160"/>
+  <object gid="71" x="1568" y="160"/>
+  <object gid="71" x="1584" y="160"/>
+  <object gid="71" x="1600" y="160"/>
+  <object gid="71" x="1264" y="256"/>
+  <object gid="71" x="128" y="256"/>
+  <object gid="71" x="144" y="256"/>
+  <object gid="71" x="160" y="256"/>
+  <object gid="71" x="176" y="256"/>
+  <object gid="71" x="192" y="256"/>
+ </objectgroup>
+</map>
