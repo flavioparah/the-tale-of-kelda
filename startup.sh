@@ -5,8 +5,9 @@ export WINEPREFIX=/home/kelda/.wine
 export WINEARCH=win32
 export DISPLAY=:1
 
-# MonoGame usa SDL2 — aponta para a lib nativa do sistema
+# MonoGame/SDL — força escala inteira para pixel art (sem blur)
 export SDL_AUDIODRIVER=dummy
+export SDL_RENDER_SCALE_QUALITY=0   # nearest neighbor — mantém pixels quadrados
 export WINEDLLOVERRIDES="mscoree,mshtml="
 
 echo "[kelda] Inicializando Wine prefix..."

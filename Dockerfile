@@ -1,31 +1,15 @@
-FROM ubuntu:22.04
+FROM scottyhardy/docker-wine:latest
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV DISPLAY=:1
-ENV SCREEN_WIDTH=1280
-ENV SCREEN_HEIGHT=720
+ENV SCREEN_WIDTH=960
+ENV SCREEN_HEIGHT=864
 ENV SCREEN_DEPTH=24
 ENV VNC_PORT=5900
 ENV NOVNC_PORT=8080
 
-# Suporte i386 para Wine 32-bit
-RUN dpkg --add-architecture i386
-
-# Repositório oficial WineHQ
+# Wine já vem na imagem base — instala apenas o que falta
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    software-properties-common \
-    gnupg2 \
-    wget \
-    ca-certificates \
-  && mkdir -p /etc/apt/keyrings \
-  && wget -qO /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key \
-  && echo "deb [signed-by=/etc/apt/keyrings/winehq-archive.key] https://dl.winehq.org/wine-builds/ubuntu/ jammy main" \
-     > /etc/apt/sources.list.d/winehq.list \
-  && apt-get update
-
-# Wine stable + dependências de display + SDL2 + OpenAL (MonoGame)
-RUN apt-get install -y --install-recommends winehq-stable \
-  && apt-get install -y --no-install-recommends \
     xvfb \
     x11vnc \
     novnc \
@@ -40,15 +24,14 @@ RUN apt-get install -y --install-recommends winehq-stable \
     libgl1-mesa-dri \
     mono-runtime \
     xdotool \
-    curl \
     python3 \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
 # Usuário não-root
-RUN useradd -m -s /bin/bash kelda
+RUN useradd -m -s /bin/bash kelda 2>/dev/null || true
 
-# Copia o repositório inteiro mantendo estrutura original:
+# Copia o repositório inteiro mantendo estrutura:
 #   MonoBundle/The Tale of Kelda - Beta.exe
 #   MonoBundle/*.dll
 #   Resources/
