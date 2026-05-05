@@ -56,7 +56,7 @@ RUN useradd -m -s /bin/bash kelda
 COPY --chown=kelda:kelda . /home/kelda/game/
 
 COPY --chown=kelda:kelda startup.sh   /home/kelda/startup.sh
-COPY --chown=kelda:kelda serve.py     /home/kelda/serve.py
+# serve.py removido em favor do websockify direto
 COPY --chown=kelda:kelda index.html   /home/kelda/index.html
 COPY supervisord.conf /etc/supervisor/conf.d/kelda.conf
 
