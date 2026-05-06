@@ -1,32 +1,31 @@
 #!/bin/bash
 set -e
 
-# Configurações de ambiente
 export WINEPREFIX=/home/kelda/.wine
 export WINEARCH=win32
 export DISPLAY=:1
-export SDL_AUDIODRIVER=dummy
-export SDL_RENDER_SCALE_QUALITY=0
 
-echo "[kelda] Aguardando Xvfb no display :1..."
-for i in $(seq 1 40); do
+echo "[kelda] Aguardando Xvfb..."
+for i in $(seq 1 30); do
   xdpyinfo -display :1 >/dev/null 2>&1 && break
-  sleep 0.5
+  sleep 1
 done
 
-echo "[kelda] Iniciando Openbox..."
 openbox &
-sleep 1
+sleep 2
 
-# Caminho onde o instalador colocou o jogo
-GAME_PATH="/home/kelda/.wine/drive_c/Program Files/The Tale of Kelda - Beta"
-EXE_NAME="The Tale of Kelda.exe"
+GAME_EXE="/home/kelda/.wine/drive_c/Program Files/The Tale of Kelda - Beta/The Tale of Kelda.exe"
 
-if [ -d "$GAME_PATH" ]; then
-    echo "[kelda] Iniciando o jogo direto da pasta instalada..."
-    cd "$GAME_PATH"
-    exec wine "$EXE_NAME"
-else
-    echo "[kelda] ERRO: Pasta do jogo não encontrada em $GAME_PATH"
-    exit 1
+if [ ! -f "$GAME_EXE" ]; then
+    echo "[kelda] Jogo não detectado. Iniciando instalação silenciosa..."
+    # Roda o instalador e aguarda ele fechar
+    wine "/home/kelda/game/Windows/TheTaleOfKelda.exe" /VERYSILENT /SUPPRESSMSGBOXES /NORESTART
+    
+    echo "[kelda] Aguardando conclusão da instalação..."
+    while pgrep -f "TheTaleOfKelda.exe" > /dev/null; do sleep 2; done
+    sleep 5
 fi
+
+echo "[kelda] Iniciando o jogo..."
+cd "/home/kelda/.wine/drive_c/Program Files/The Tale of Kelda - Beta"
+exec wine "The Tale of Kelda.exe"
