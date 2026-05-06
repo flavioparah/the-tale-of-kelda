@@ -6,10 +6,6 @@ export WINEARCH=win32
 export DISPLAY=:1
 export SDL_AUDIODRIVER=dummy
 export SDL_RENDER_SCALE_QUALITY=0
-export WINEDLLOVERRIDES="mscoree,mshtml="
-
-echo "[kelda] Inicializando Wine prefix..."
-wineboot --init 2>/dev/null || true
 
 echo "[kelda] Aguardando Xvfb..."
 for i in $(seq 1 40); do
@@ -21,14 +17,16 @@ echo "[kelda] Display pronto."
 openbox &
 sleep 1
 
-EXE="/home/kelda/game/Windows/TheTaleOfKelda.exe"
+# Caminho do jogo após instalação pelo Wine
+GAME="/home/kelda/.wine/drive_c/Program Files/The Tale of Kelda - Beta/The Tale of Kelda.exe"
 
-if [ ! -f "$EXE" ]; then
-  echo "[kelda] ERRO: .exe não encontrado em $EXE"
-  find /home/kelda/game -name "*.exe" 2>/dev/null
-  sleep infinity
+# Se o jogo ainda não foi instalado, roda o instalador primeiro
+if [ ! -f "$GAME" ]; then
+  echo "[kelda] Jogo não instalado — rodando instalador silenciosamente..."
+  wine /home/kelda/game/Windows/TheTaleOfKelda.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART
+  sleep 10
 fi
 
-echo "[kelda] Iniciando via Wine: TheTaleOfKelda.exe"
-cd /home/kelda/game/Windows
-exec wine "$EXE"
+echo "[kelda] Iniciando The Tale of Kelda..."
+cd "/home/kelda/.wine/drive_c/Program Files/The Tale of Kelda - Beta"
+exec wine "The Tale of Kelda.exe"
