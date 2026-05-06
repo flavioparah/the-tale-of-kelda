@@ -11,7 +11,7 @@ ENV WINEARCH=win32
 
 RUN dpkg --add-architecture i386
 
-# Instalando sudo junto com as outras ferramentas
+# Instalação de dependências e do SUDO
 RUN apt-get update && apt-get install -y --no-install-recommends \
     wine wine32 wine64 xvfb x11vnc novnc websockify openbox \
     supervisor libsdl2-2.0-0 libsdl2-2.0-0:i386 libopenal1 \
@@ -20,12 +20,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN useradd -m -s /bin/bash kelda
-
-# Liberando o sudo para o usuário kelda não travar no volume
 RUN echo "kelda ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 WORKDIR /home/kelda
 
+# Copia os arquivos do projeto
 COPY --chown=kelda:kelda . /home/kelda/game/
 COPY --chown=kelda:kelda index.html /usr/share/novnc/index.html
 COPY --chown=kelda:kelda startup.sh /home/kelda/startup.sh
@@ -33,10 +32,12 @@ COPY supervisord.conf /etc/supervisor/conf.d/kelda.conf
 
 RUN chmod +x /home/kelda/startup.sh
 
-# Preparando a pasta do Wine
+# Preparação da pasta do Wine
 RUN mkdir -p /home/kelda/.wine && chown -R kelda:kelda /home/kelda/.wine
 
 EXPOSE 8080
-USER kelda
+
+# Rodamos como root para garantir que o script inicial consiga ajustar o volume persistente
+USER root
 
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/conf.d/kelda.conf"]
