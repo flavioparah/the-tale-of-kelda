@@ -3,9 +3,8 @@ export WINEPREFIX=/home/kelda/.wine
 export WINEARCH=win32
 export DISPLAY=:1
 export WINEDEBUG=-all
-export LIBGL_ALWAYS_SOFTWARE=1 
 
-echo "[kelda] Assumindo controle do volume persistente..."
+echo "[kelda] Ajustando volume..."
 sudo chown -R kelda:kelda /home/kelda/.wine
 
 echo "[kelda] Aguardando Xvfb..."
@@ -17,38 +16,18 @@ done
 openbox &
 sleep 2
 
-# Procura se o jogo já está no C: do Wine
+# Procura o jogo
 GAME_EXE=$(find /home/kelda/.wine/drive_c -name "The Tale of Kelda.exe" | head -n 1)
 
 if [ -z "$GAME_EXE" ]; then
-    echo "[kelda] Jogo não instalado. Iniciando instalação silenciosa..."
-    wine "/home/kelda/game/Windows/TheTaleOfKelda.exe" /VERYSILENT /SUPPRESSMSGBOXES /NORESTART &
-    
-    echo "[kelda] Robô de cliques ativado (2 minutos de vigília)..."
-    for i in {1..60}; do
-        # Aperta Enter para pular telas de driver/licença
-        xdotool key --delay 500 Return 2>/dev/null
-        
-        # Tenta achar o executável novamente
-        GAME_EXE=$(find /home/kelda/.wine/drive_c -name "The Tale of Kelda.exe" | head -n 1)
-        if [ -n "$GAME_EXE" ]; then
-            echo "[kelda] Sucesso! Jogo encontrado em: $GAME_EXE"
-            break
-        fi
-        sleep 2
-    done
-    wineserver -w
-fi
-
-if [ -n "$GAME_EXE" ]; then
-    echo "[kelda] Abrindo o jogo no Desktop Virtual..."
-    cd "$(dirname "$GAME_EXE")"
-    # Abre o jogo e o & libera o script para seguir até o final
-    wine explorer /desktop=Kelda,960x864 "$GAME_EXE" &
+    echo "[kelda] Abrindo instalador VISUALMENTE. Verifique o navegador agora!"
+    # Abrindo sem flags silenciosas e dentro de um desktop virtual
+    wine explorer /desktop=Instalador,960x864 "/home/kelda/game/Windows/TheTaleOfKelda.exe"
 else
-    echo "[kelda] O instalador não terminou a tempo. Verifique o Canvas."
+    echo "[kelda] Jogo já instalado. Iniciando..."
+    cd "$(dirname "$GAME_EXE")"
+    exec wine explorer /desktop=Kelda,960x864 "The Tale of Kelda.exe"
 fi
 
-# ESSENCIAL: Mantém o processo do Supervisor ativo
-echo "[kelda] Container estabilizado. Logs ativos..."
+# Mantém vivo se algo falhar
 tail -f /dev/null
